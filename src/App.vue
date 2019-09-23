@@ -1,10 +1,20 @@
 <template>
   <div id="app">
     <ion-app>
-      <ion-vue-router />
+      <!-- <ion-vue-router /> -->
+      <bottom-bar-vue/>
     </ion-app>
   </div>
 </template>
+
+<script>
+import BottomBarVue from './components/BottomBar.vue';
+export default {
+  components: {
+    'bottom-bar-vue': BottomBarVue,
+  }
+}
+</script>
 
 <style>
 #app {

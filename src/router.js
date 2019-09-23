@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Home from './views/Home.vue';
+
 import { IonicVueRouter } from '@ionic/vue';
 
 
@@ -21,6 +22,18 @@ export default new IonicVueRouter({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
-  ]
+    },
+    {
+      path: '/notificaciones',
+      name: 'notificaciones',
+      component: () => import(/* webpackChunkName: "about" */ './views/Notificaciones.vue')
+    },
+    {
+      path: '/scroll',
+      name: 'scroll',
+      component: () => import(/* webpackChunkName: "about" */ './views/Scroll.vue')
+    },
+  ],
+  direction: 1,
+	viewCount: 0
 })
