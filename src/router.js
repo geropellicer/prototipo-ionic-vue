@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Home from './views/Home.vue';
+
 
 import { IonicVueRouter } from '@ionic/vue';
 
@@ -12,8 +12,7 @@ export default new IonicVueRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: '/scroll'
     },
     {
       path: '/about',

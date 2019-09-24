@@ -11,11 +11,10 @@
         </ion-button>
 
         <ion-list>
-            <tarjeta/>
-            <tarjeta/>
+            <tarjeta v-for="(card, index) in posts" :key="index"/>
         </ion-list>
 
-        <ion-infinite-scroll threshold="100px" id="infinite-scroll">
+        <ion-infinite-scroll threshold="100px" id="infinite-scroll" >
             <ion-infinite-scroll-content
             loading-spinner="bubbles"
             loading-text="Loading more data...">
@@ -28,6 +27,7 @@
 <script>
 import IonInfiniteScroll from '@ionic/vue';
 import TarjetaVue from './Tarjeta.vue';
+import { apiService } from "@/common/api.service.js";
 
 export default {
     name: 'ScrollInifinito',
@@ -41,29 +41,64 @@ export default {
             default: () => IonInfiniteScroll,
         }
     },
+    data(){
+        return{
+            paginaActual: 0,
+            cantidadArticulosDescargados: 0,
+            porPaginaActual: 10,
+            posts: [], 
+        }
+    },
     methods: {
-        loadData(event) {
-            setTimeout(() => {
-                console.log('Done');
-                event.target.complete();
-
-                // App logic to determine if all data is loaded
-                // and disable the infinite scroll
-                if (this.data.length == 1000) {
-                    event.target.disabled = true;
-                }
-            }, 500);
-        },
         toggleInfiniteScroll() {
             this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
             console.log("llego la fruia");
+            this.bajarData();
+            console.log(this.posts);
         },
         imprimir(){
             console.log("dale gato");
         },
+        bajarData(event) {
+            // make a GET Request to the questions list endpoint and populate the questions array
+            let endpoint = this.crearEndpoint();
+            if (this.next) {
+                endpoint = this.next;
+            }
+            // this.loadingQuestions = true;
+            apiService(endpoint).then(data => {
+                this.posts.push(...data);
+                event.target.complete();
+            })
+        },
+        crearEndpoint(){
+            console.log("crear endpoint llamado");
+            this.paginaActual = this.paginaActual + 1;
+            this.cantidadArticulosDescargados = this.paginaActual * this.porPaginaActual;
+            return "https://api.punkapi.com/v2/beers?page=" + this.paginaActual + "&per_page=" + this.porPaginaActual;
+        }
     },
     mounted: function(){
+        let $vm = this;
+
         console.log("montaod");
+        const infiniteScroll = document.getElementById('infinite-scroll');
+        infiniteScroll.addEventListener('ionInfinite', function(event) {
+            setTimeout(function() {
+                $vm.bajarData(event);
+                console.log("Hay: " + $vm.posts.length);
+                console.log("Deberian haber: " + $vm.cantidadArticulosDescargados);
+                console.log("Pagina actual: " + $vm.paginaActual);
+                console.log("Cant por pagina: " + $vm.porPaginaActual);
+                // event.target.complete();
+
+                // App logic to determine if all data is loaded
+                // and disable the infinite scroll
+                if ($vm.posts.length == $vm.cantidadArticulosDescargados) {
+                    event.target.disabled = true;
+                }
+            }, 500);
+        });
     }
 }
 
