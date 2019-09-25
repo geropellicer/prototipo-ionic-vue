@@ -1,5 +1,6 @@
 <template>
   <div class="ion-page">
+      <top-bar/>
       <button @click="clickear">
             Hola
       </button>
@@ -7,11 +8,13 @@
 </template>
 
 <script>
+import TopBarVue from '../components/TopBar.vue';
 // @ is an alias to /src
 
 export default {
   name: 'notificaciones',
   components: {
+    'top-bar': TopBarVue
   },
   methods: {
     clickear: function(){

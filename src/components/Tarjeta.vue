@@ -1,21 +1,33 @@
 <template>
 <ion-card>
-    <img src="https://ionicframework.com/docs/demos/api/card/madison.jpg" />
+    <img class="cabecera" :src="datos.image_url" />
         <ion-card-header>
-          <ion-card-subtitle>Destination</ion-card-subtitle>
-          <ion-card-title>Madison, WI</ion-card-title>
+          <ion-card-subtitle>{{ datos.name }}</ion-card-subtitle>
+          <ion-card-title>{{ datos.tagline }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+          {{ datos.description }}
         </ion-card-content>
     </ion-card>
 </template>
 <script>
 export default {
     name: 'Tarjeta',
+    props: {
+      datos: Object,
+    },
+    mounted: function() {
+      console.log(this.datos);
+    }
 }
 </script>
 
 <style>
-
+  img.cabecera{
+   height: 350px; 
+   width: auto;
+   margin: 0 auto;
+   padding: 20px;
+   padding-top: 40px;
+  }
 </style>

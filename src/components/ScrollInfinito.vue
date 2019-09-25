@@ -1,17 +1,7 @@
 <template>
     <ion-content>
-        <h1>Holanda</h1>
-        <ion-button v-on:click="console.log('esteban')">
-            <ion-icon slot="start" name="star"></ion-icon>
-            Left Icon
-        </ion-button>
-        <ion-button @click="toggleInfiniteScroll" expand="block"> -->
-        <!-- <ion-button expand="block"> -->
-            Toggle Infinite Scroll
-        </ion-button>
-
         <ion-list>
-            <tarjeta v-for="(card, index) in posts" :key="index"/>
+            <tarjeta v-for="(card, index) in posts" :key="index" :datos="card"/>
         </ion-list>
 
         <ion-infinite-scroll threshold="100px" id="infinite-scroll" >
@@ -68,7 +58,9 @@ export default {
             // this.loadingQuestions = true;
             apiService(endpoint).then(data => {
                 this.posts.push(...data);
-                event.target.complete();
+                if(event != null){
+                    event.target.complete();
+                }
             })
         },
         crearEndpoint(){
@@ -80,7 +72,7 @@ export default {
     },
     mounted: function(){
         let $vm = this;
-
+        $vm.bajarData(null);
         console.log("montaod");
         const infiniteScroll = document.getElementById('infinite-scroll');
         infiniteScroll.addEventListener('ionInfinite', function(event) {
