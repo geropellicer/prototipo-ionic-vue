@@ -32,6 +32,11 @@ export default new IonicVueRouter({
       name: 'scroll',
       component: () => import(/* webpackChunkName: "about" */ './views/Scroll.vue')
     },
+    {
+      path: '/map',
+      name: 'map',
+      component: () => import(/* webpackChunkName: "about" */ './views/Mapa.vue')
+    },
   ],
   direction: 1,
 	viewCount: 0

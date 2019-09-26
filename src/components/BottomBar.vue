@@ -11,9 +11,11 @@
     </ion-tab>
 
     <ion-tab tab="map">
+      <mapa/>
     </ion-tab>
 
     <ion-tab tab="about">
+      <about/>
     </ion-tab>
 
     <!-- Use v-slot:bottom with Vue ^2.6.0 -->
@@ -51,12 +53,16 @@
 
 import NotificacionesVue from '../views/Notificaciones.vue';
 import ScrollVue from '../views/Scroll.vue';
+import AboutVue from '../views/About.vue';
+import MapaVue from '../views/Mapa.vue';
 
 export default {
     name: 'bottombar',
     components: {
       'notificaciones': NotificacionesVue,
       'scroll': ScrollVue,
+      'about': AboutVue,
+      'mapa': MapaVue,
     }
 }
 </script>

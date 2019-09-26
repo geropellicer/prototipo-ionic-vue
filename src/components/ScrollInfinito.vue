@@ -1,13 +1,14 @@
 <template>
     <ion-content>
-        <ion-list>
-            <tarjeta v-for="(card, index) in posts" :key="index" :datos="card"/>
-        </ion-list>
+                <ion-list>
+                    <tarjeta v-for="(card, index) in posts" :key="index" :datos="card"/>
+                </ion-list>
+
+
 
         <ion-infinite-scroll threshold="100px" id="infinite-scroll" >
-            <ion-infinite-scroll-content
-            loading-spinner="bubbles"
-            loading-text="Loading more data...">
+            <ion-infinite-scroll-content>
+        
             </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content> 
@@ -35,7 +36,7 @@ export default {
         return{
             paginaActual: 0,
             cantidadArticulosDescargados: 0,
-            porPaginaActual: 10,
+            porPaginaActual: 30,
             posts: [], 
         }
     },

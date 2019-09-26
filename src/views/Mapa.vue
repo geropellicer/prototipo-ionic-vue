@@ -1,8 +1,8 @@
 <template>
   <div class="ion-page">
     <top-bar/>
-    <div class="about">
-      <h1>This is an about page</h1>
+    <div class="mapa">
+      <h1>This is a map page</h1>
       <button>
               Hola
           </button>
@@ -13,7 +13,7 @@
 <script>
 import TopBarVue from '../components/TopBar.vue';
 export default {
-  name: 'about',
+  name: 'mapa',
   components: {
     'top-bar': TopBarVue,
   }
