@@ -12,7 +12,7 @@ import BottomBarVue from './components/BottomBar.vue';
 export default {
   components: {
     'bottom-bar-vue': BottomBarVue,
-  }
+  },
 }
 </script>
 
@@ -36,4 +36,8 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+.item-native, .item-inner{
+  padding: 0 !important;
+}
+
 </style>

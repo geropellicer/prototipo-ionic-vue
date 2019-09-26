@@ -1,19 +1,10 @@
 <template>
   <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="secondary">
-            <ion-button fill="solid">
-            <ion-icon slot="start" name="contact"></ion-icon>
-            Contact
-            </ion-button>
-        </ion-buttons>
-        <ion-title>Solid Buttons</ion-title>
-        <ion-buttons slot="primary">
-            <ion-button fill="solid" color="secondary">
-            Help
-            <ion-icon slot="end" name="help-circle"></ion-icon>
-            </ion-button>
-        </ion-buttons>
+      <div class="cabecera">
+        <img src="../assets/icons/beer-icon.png" class="icon-xs"/>
+        <ion-title text-left>Beergram</ion-title>
+      </div>
     </ion-toolbar>
    </ion-header>
 </template>
@@ -43,4 +34,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .cabecera{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .icon-xs{
+    width: 33px;
+    display: inline-block; 
+  }
 </style>

@@ -1,52 +1,61 @@
 <template>
-  <ion-item>
-    <div class="cabecera">
-      <div class="perfil">
-        <img class="imgPerfil" :src="datos.image_url" />
+  <ion-item no-padding>
+    <div class="tarjeta">
+      <div class="cabecera">
+        <div class="left">
+          <div class="perfil">
+            <img class="imgPerfil" :src="datos.image_url" />
+          </div>
+          <div class="author">
+            <h1> {{ datos.name }} </h1>
+            <h2> {{ datos.tagline }} </h2>
+          </div>
+        </div>
+        <div class="right">
+            <ion-button fill="clear" shape="undefined" size="small" class="contextMenu">
+              <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+        </div>
       </div>
-      <div class="author">
-        <h1> {{ datos.name }} </h1>
-        <h2> {{ datos.tagline }} </h2>
+      <div class="imagen">
+        <img class="imgPrincipal" :src="datos.image_url" />
       </div>
-      <div class="contextMenu">
-        <ion-icon name="more"></ion-icon>
+      <div class="bottom">
+        <div class="bottom-left">
+          <ion-button fill="clear" shape="undefined" size="small" @click="megustear()">
+            <img v-if="!megusteado" src="../assets/icons/ig-like-outline.png"/>
+            <img v-if="megusteado" src="../assets/icons/ig-like-fill.png"/>
+          </ion-button>
+          <ion-button fill="clear" shape="undefined" size="small">
+            <img src="../assets/icons/ig-comments.png"/>
+          </ion-button>
+          <ion-button fill="clear" shape="undefined" size="small">
+            <img src="../assets/icons/ig-share.png"/>
+          </ion-button>
+        </div>
+        <div class="bottom-right">
+          <ion-button fill="clear" shape="undefined" size="small" @click="guardar()">
+            <img v-if="!guardado" src="../assets/icons/ig-save-outline.png"/>
+            <img v-if="guardado" src="../assets/icons/ig-save-fill.png"/>
+          </ion-button>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="megustas">
+          <span> {{ datos.ibu }} Me gusta </span>
+        </div>
+        <div class="post-description">
+          <p>
+            <span> {{ datos.contributed_by }} </span>
+            {{ datos.description }}
+          </p>
+        </div>
+        <div class="comentarios">
+            <span>Ver los {{ datos.ebc }} comentarios </span>
+        </div>
       </div>
     </div>
-    <div class="imagen">
-      <img class="imgPrincipal" :src="datos.image_url" />
-    </div>
-    <div class="bottom">
-      <div class="bottom-left">
-          <img v-if="!megusteado" src="../assets/icons/ig-like-outline.png"/>
-          <img v-if="megusteado" src="../assets/icons/ig-like-fill.png"/>
-          <img src="../assets/icons/ig-comments.png"/>
-          <img src="../assets/icons/ig-share.png"/>
-      </div>
-      <div class="bottom-right">
-          <img v-if="!guardado" src="../assets/icons/ig-save-outline.png"/>
-          <img v-if="guardado" src="../assets/icons/ig-save-fill.png"/>
-      </div>
-    </div>
-    <div class="footer">
-      <div class="megustas">
-        <span> {{ datos.ibu }} Me gusta </span>
-      </div>
-      <div class="post-description">
-        <p>
-          <span> {{ datos.contributed_by }} </span>
-          {{ datos.description }}
-        </p>
-      </div>
-    </div>
-   
-        <ion-card-header>
-          <ion-card-subtitle>{{ datos.name }}</ion-card-subtitle>
-          <ion-card-title>{{ datos.tagline }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          {{ datos.description }}
-        </ion-card-content>
-    </ion-item>
+  </ion-item>
 </template>
 <script>
 export default {
@@ -60,6 +69,14 @@ export default {
         guardado: false,
       }
     },
+    methods: {
+      guardar() {
+        this.guardado = !this.guardado;
+      },
+      megustear() {
+        this.megusteado = !this.megusteado;
+      }
+    },
     mounted: function() {
       console.log(this.datos);
     }
@@ -67,11 +84,156 @@ export default {
 </script>
 
 <style>
+  ion-item {
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+  }
+
   img.imgPrincipal{
    height: 350px; 
    width: auto;
-   margin: 0 auto;
+   margin: auto;
    padding: 20px;
    padding-top: 40px;
+  }
+  img.imgPerfil {
+   height: 35px; 
+   width: auto;
+   margin: auto;
+   padding: 3px;
+  }
+
+  .tarjeta{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+
+  .cabecera{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    padding: 12px;
+    padding-right: 4px;
+  }
+  .cabecera .left{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .cabecera .perfil{
+    border-radius: 50%;
+    background: #ccc;
+    width: 33px;
+    height: 33px;
+    display: flex;
+    margin-right: 12px;
+  }
+  .cabecera h1{
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  .cabecera h2{
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+    color: #333;
+    font-weight: 200;
+  }
+  .cabecera .right{
+    display: flex;
+    height: 30px;
+  }
+  .context-menu{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ion-icon{
+    margin: auto;
+    height: 32px;
+  }
+
+  .imagen{
+    background: #ccc;
+    width: 100%;
+    display: flex;
+  }
+
+  .bottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+  }
+  .bottom-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .bottom-left img{
+    margin-right: 12px;
+    width: 23px;
+    height: auto;
+  }
+  .bottom-left > *:first-child img{
+    width: 26px;
+    height: auto;
+  }
+  .bottom-right img{
+    width: 20px;
+    height: 25px;
+  }
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 18px;
+    padding-top: 0;
+  }
+  .footer .megustas{
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .footer .post-description span{
+    font-weight: bold;
+  }
+  .footer .post-description p{
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    font-size: 11px; 
+  }
+  .footer .comentarios{
+    margin-top: 4px;
+  }
+  .footer .comentarios span{
+    color: #999999;
+    font-size: 12px;
+  }
+
+  ion-button{
+    --color: #000;
+    --color-activated: #000;
+    --color-hover: #000;
+    --padding-end: 0;
+    --padding-start: 0;
+    --ripple-color: #fff;
   }
 </style>
