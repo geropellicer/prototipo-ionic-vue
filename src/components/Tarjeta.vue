@@ -4,7 +4,7 @@
       <div class="cabecera">
         <div class="left">
           <div class="perfil">
-            <img class="imgPerfil" :src="datos.image_url" />
+            <ion-img class="imgPerfil" :src="datos.image_url"></ion-img>
           </div>
           <div class="author">
             <h1> {{ datos.name }} </h1>
@@ -18,25 +18,25 @@
         </div>
       </div>
       <div class="imagen">
-        <img class="imgPrincipal" :src="datos.image_url" />
+        <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
       </div>
       <div class="bottom">
         <div class="bottom-left">
           <ion-button fill="clear" shape="undefined" size="small" @click="megustear()">
-            <img v-if="!megusteado" src="../assets/icons/ig-like-outline.png"/>
-            <img v-if="megusteado" src="../assets/icons/ig-like-fill.png"/>
+            <ion-img v-if="!megusteado" src="../assets/icons/ig-like-outline.png"></ion-img>
+            <ion-img v-if="megusteado" src="../assets/icons/ig-like-fill.png"></ion-img>
           </ion-button>
           <ion-button fill="clear" shape="undefined" size="small">
-            <img src="../assets/icons/ig-comments.png"/>
+            <ion-img src="../assets/icons/ig-comments.png"></ion-img>
           </ion-button>
           <ion-button fill="clear" shape="undefined" size="small">
-            <img src="../assets/icons/ig-share.png"/>
+            <ion-img src="www/assets/icons/ig-share.png"></ion-img>
           </ion-button>
         </div>
         <div class="bottom-right">
           <ion-button fill="clear" shape="undefined" size="small" @click="guardar()">
-            <img v-if="!guardado" src="../assets/icons/ig-save-outline.png"/>
-            <img v-if="guardado" src="../assets/icons/ig-save-fill.png"/>
+            <ion-img v-if="!guardado" src="www/assets/icons/ig-save-outline.png"></ion-img>
+            <ion-img v-if="guardado" src="www/assets/icons/ig-save-fill.png"></ion-img>
           </ion-button>
         </div>
       </div>
@@ -78,7 +78,6 @@ export default {
       }
     },
     mounted: function() {
-      console.log(this.datos);
     }
 }
 </script>
@@ -89,14 +88,14 @@ export default {
     --inner-padding-end: 0px;
   }
 
-  img.imgPrincipal{
+  .imgPrincipal{
    height: 350px; 
    width: auto;
    margin: auto;
    padding: 20px;
    padding-top: 40px;
   }
-  img.imgPerfil {
+  .imgPerfil {
    height: 35px; 
    width: auto;
    margin: auto;

@@ -43,12 +43,6 @@ export default {
     methods: {
         toggleInfiniteScroll() {
             this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-            console.log("llego la fruia");
-            this.bajarData();
-            console.log(this.posts);
-        },
-        imprimir(){
-            console.log("dale gato");
         },
         bajarData(event) {
             // make a GET Request to the questions list endpoint and populate the questions array
@@ -65,7 +59,6 @@ export default {
             })
         },
         crearEndpoint(){
-            console.log("crear endpoint llamado");
             this.paginaActual = this.paginaActual + 1;
             this.cantidadArticulosDescargados = this.paginaActual * this.porPaginaActual;
             return "https://api.punkapi.com/v2/beers?page=" + this.paginaActual + "&per_page=" + this.porPaginaActual;
@@ -74,7 +67,6 @@ export default {
     mounted: function(){
         let $vm = this;
         $vm.bajarData(null);
-        console.log("montaod");
         const infiniteScroll = document.getElementById('infinite-scroll');
         infiniteScroll.addEventListener('ionInfinite', function(event) {
             setTimeout(function() {

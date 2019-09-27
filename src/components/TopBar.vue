@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <div class="cabecera">
-        <img src="../assets/icons/beer-icon.png" class="icon-xs"/>
+        <ion-img src="../assets/icons/beer-icon.png" class="icon-xs"/>
         <ion-title text-left>Beergram</ion-title>
       </div>
     </ion-toolbar>
@@ -13,21 +13,10 @@
 export default {
   name: 'topbar',
   props: {
-    msg: {
-      type: String,
-      default: "Holanda american"
-    }
   },
   methods: {
-    imprimir: function(){
-      console.log(this.msg);
-    },
-        clickear: function(){
-        console.log("Consoleado");
-        }
   },
   mounted: function(){
-    this.imprimir();
   }
 }
 </script>

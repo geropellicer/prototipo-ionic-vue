@@ -21,14 +21,14 @@
     <!-- Use v-slot:bottom with Vue ^2.6.0 -->
     <template slot="bottom">
       <ion-tab-bar>
-        <ion-tab-button tab="scroll" @click="$router.push('/scroll')">
+        <ion-tab-button tab="scroll">
           <ion-icon name="list"></ion-icon>
           <ion-label>Scroll</ion-label>
           <ion-badge>0</ion-badge>
         </ion-tab-button>
 
         <!-- Provide a custom route to navigate to -->
-        <ion-tab-button tab="notificaciones" @click="$router.push('/notificaciones')">
+        <ion-tab-button tab="notificaciones">
           <ion-icon name="notifications"></ion-icon>
           <ion-label>Notificaciones</ion-label>
         </ion-tab-button>
