@@ -23,20 +23,20 @@
       <div class="bottom">
         <div class="bottom-left">
           <ion-button fill="clear" shape="undefined" size="small" @click="megustear()">
-            <ion-img v-if="!megusteado" src="../assets/icons/ig-like-outline.png"></ion-img>
-            <ion-img v-if="megusteado" src="../assets/icons/ig-like-fill.png"></ion-img>
+            <ion-img v-if="!megusteado" :src="require(`@/assets/icons/ig-like-outline.png`)"></ion-img>
+            <ion-img v-if="megusteado" :src="require(`@/assets/icons/ig-like-fill.png`)"></ion-img>
           </ion-button>
           <ion-button fill="clear" shape="undefined" size="small">
-            <ion-img src="../assets/icons/ig-comments.png"></ion-img>
+            <ion-img :src="require(`@/assets/icons/ig-comments.png`)"></ion-img>
           </ion-button>
           <ion-button fill="clear" shape="undefined" size="small">
-            <ion-img src="www/assets/icons/ig-share.png"></ion-img>
+            <ion-img :src="require(`@/assets/icons/ig-share.png`)"></ion-img>
           </ion-button>
         </div>
         <div class="bottom-right">
           <ion-button fill="clear" shape="undefined" size="small" @click="guardar()">
-            <ion-img v-if="!guardado" src="www/assets/icons/ig-save-outline.png"></ion-img>
-            <ion-img v-if="guardado" src="www/assets/icons/ig-save-fill.png"></ion-img>
+            <ion-img v-if="!guardado" :src="require(`@/assets/icons/ig-save-outline.png`)"></ion-img>
+            <ion-img v-if="guardado" :src="require(`@/assets/icons/ig-save-fill.png`)"></ion-img>
           </ion-button>
         </div>
       </div>
@@ -183,18 +183,18 @@ export default {
     align-items: center;
     flex-wrap: nowrap;
   }
-  .bottom-left img{
+  .bottom-left ion-img{
     margin-right: 12px;
     width: 23px;
     height: auto;
   }
-  .bottom-left > *:first-child img{
+  .bottom-left > *:first-child ion-img{
     width: 26px;
     height: auto;
   }
-  .bottom-right img{
+  .bottom-right ion-img{
     width: 20px;
-    height: 25px;
+    height: 26px;
   }
 
   .footer{

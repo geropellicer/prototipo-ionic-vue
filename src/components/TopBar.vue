@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar>
       <div class="cabecera">
-        <ion-img src="../assets/icons/beer-icon.png" class="icon-xs"/>
+        <ion-icon :src="require(`@/assets/icons/beer-logo.svg`)" class="icon-xs"/>
         <ion-title text-left>Beergram</ion-title>
       </div>
     </ion-toolbar>
