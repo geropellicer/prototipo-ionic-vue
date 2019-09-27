@@ -1,0 +1,7 @@
+{
+  "appId": "com.devsar.ionicvue",
+  "appName": "IonicVue",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist"
+}
