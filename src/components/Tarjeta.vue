@@ -17,12 +17,13 @@
             </ion-button>
         </div>
       </div>
-      <div class="imagen">
+      <div class="imagen" @dblclick="megustear()">
         <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
+        <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
       </div>
       <div class="bottom">
         <div class="bottom-left">
-          <ion-button fill="clear" shape="undefined" size="small" @click="megustear()">
+          <ion-button fill="clear" shape="undefined" size="small" @click="megustear2()">
             <ion-img v-if="!megusteado" :src="require(`@/assets/icons/ig-like-outline.png`)"></ion-img>
             <ion-img v-if="megusteado" :src="require(`@/assets/icons/ig-like-fill.png`)"></ion-img>
           </ion-button>
@@ -70,10 +71,23 @@ export default {
       }
     },
     methods: {
-      guardar() {
+      megustear() {
         this.guardado = !this.guardado;
       },
       megustear() {
+        this.megusteado = true;
+        if(this.megusteado){
+          const element =  document.querySelector('.mielemento');
+          element.classList.remove('oculto');
+          element.addEventListener('animationend', function() { 
+            element.classList.add('oculto');
+           })
+        } else{
+          const element =  document.querySelector('.mielemento');
+          element.classList.add('oculto');
+        }
+      }, 
+      megustear2(){
         this.megusteado = !this.megusteado;
       }
     },
@@ -83,6 +97,25 @@ export default {
 </script>
 
 <style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+.oculto{
+    display: none;
+}
+.mielemento{
+  position: absolute;
+  top: -100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: rgba(255,255,255,.85);
+  width: 28vw;
+  height: 28vw;
+
+}
+.mielemento svg{
+  opacity: .27 !important;
+}
+
   ion-item {
     --padding-end: 0px;
     --inner-padding-end: 0px;

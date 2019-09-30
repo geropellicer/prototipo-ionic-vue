@@ -22,7 +22,6 @@
 import IonInfiniteScroll from '@ionic/vue';
 import TarjetaVue from './Tarjeta.vue';
 import { apiService } from "@/common/api.service.js";
-import { Component, Vue } from 'vue-property-decorator';
 
 export default {
     name: 'ScrollInifinito',
