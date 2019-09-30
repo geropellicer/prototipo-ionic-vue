@@ -1,10 +1,13 @@
 <template>
     <ion-content>
-                <ion-list>
-                    <tarjeta v-for="(card, index) in posts" :key="index" :datos="card"/>
-                </ion-list>
 
+        <ion-refresher slot="fixed" @ionRefresh="doRefresh($event)">
+            <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
 
+        <ion-list>
+            <tarjeta v-for="(card, index) in posts" :key="index" :datos="card"/>
+        </ion-list>
 
         <ion-infinite-scroll threshold="100px" id="infinite-scroll" >
             <ion-infinite-scroll-content>
@@ -19,6 +22,7 @@
 import IonInfiniteScroll from '@ionic/vue';
 import TarjetaVue from './Tarjeta.vue';
 import { apiService } from "@/common/api.service.js";
+import { Component, Vue } from 'vue-property-decorator';
 
 export default {
     name: 'ScrollInifinito',
@@ -62,6 +66,14 @@ export default {
             this.paginaActual = this.paginaActual + 1;
             this.cantidadArticulosDescargados = this.paginaActual * this.porPaginaActual;
             return "https://api.punkapi.com/v2/beers?page=" + this.paginaActual + "&per_page=" + this.porPaginaActual;
+        },
+        doRefresh(event) {
+            console.log('Begin async operation');
+
+            setTimeout(() => {
+                console.log('Async operation has ended');
+                event.target.complete();
+            }, 2000);
         }
     },
     mounted: function(){
