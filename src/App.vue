@@ -9,6 +9,7 @@
 
 <script>
 import BottomBarVue from './components/BottomBar.vue';
+
 export default {
   components: {
     'bottom-bar-vue': BottomBarVue,

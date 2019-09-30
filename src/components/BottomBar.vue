@@ -7,6 +7,7 @@
     </ion-tab>
 
     <ion-tab tab="notificaciones">
+     <!-- <virtualscroll/> -->
      <notificaciones/>
     </ion-tab>
 
@@ -24,7 +25,7 @@
         <ion-tab-button tab="scroll">
           <ion-icon name="list"></ion-icon>
           <ion-label>Scroll</ion-label>
-          <ion-badge>0</ion-badge>
+          <!-- <ion-badge>0</ion-badge> -->
         </ion-tab-button>
 
         <!-- Provide a custom route to navigate to -->

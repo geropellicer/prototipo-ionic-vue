@@ -32,5 +32,6 @@ export default {
   .icon-xs{
     width: 33px;
     display: inline-block; 
+    margin: 0;
   }
 </style>

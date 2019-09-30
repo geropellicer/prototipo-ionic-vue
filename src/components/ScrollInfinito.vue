@@ -40,7 +40,7 @@ export default {
         return{
             paginaActual: 0,
             cantidadArticulosDescargados: 0,
-            porPaginaActual: 30,
+            porPaginaActual: 15,
             posts: [], 
         }
     },

@@ -1,25 +1,22 @@
 <template>
-  <div class="ion-page">
-      <top-bar/>
-      <button @click="clickear">
-            Hola
-      </button>
-  </div>
+    <div class="ion-page">
+        <topbar/>
+    </div>
 </template>
 
 <script>
 import TopBarVue from '../components/TopBar.vue';
-// @ is an alias to /src
-
 export default {
   name: 'notificaciones',
   components: {
-    'top-bar': TopBarVue
+      'topbar': TopBarVue,
   },
-  methods: {
-    clickear: function(){
-      console.log("Consoleado");
-    }
+  mounted(){
+      console.log("notificaciones montadas");
   }
 }
 </script>
+
+<style>
+
+</style>
