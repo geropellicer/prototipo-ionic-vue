@@ -74,8 +74,9 @@ export default {
          this.escalar(document.querySelector("#im"), gestureStatus.scale);
       },
       onPinchEnd(gestureStatus){
+          console.log(gestureStatus.scale);
           this.escalar(document.querySelector("#im"), 1);
-          console.log(end);
+          console.log("end");
       },       
   }
 }

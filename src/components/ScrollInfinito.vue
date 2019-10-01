@@ -67,12 +67,13 @@ export default {
             return "https://api.punkapi.com/v2/beers?page=" + this.paginaActual + "&per_page=" + this.porPaginaActual;
         },
         doRefresh(event) {
-            console.log('Begin async operation');
-
+            this.paginaActual= 0;
+            this.cantidadArticulosDescargados= 0;
+            this.porPaginaActual= 15;
+            this.posts = this.posts.slice(0,1); 
             setTimeout(() => {
-                console.log('Async operation has ended');
                 event.target.complete();
-            }, 2000);
+            }, 1000);
         }
     },
     mounted: function(){

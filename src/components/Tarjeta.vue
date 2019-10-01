@@ -17,12 +17,14 @@
             </ion-button>
         </div>
       </div>
+      <div class="imWrapper" @dblclick="megustear()">
       <Gesture @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTapEnd="onTapEnd($event)" enablePinch>
-        <div class="imagen" @dblclick="megustear()">
+        <div class="imagen">
           <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
           <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
         </div>
       </Gesture>
+      </div>
       <div class="bottom">
         <div class="bottom-left">
           <ion-button fill="clear" shape="undefined" size="small" @click="megustear2()">
@@ -103,16 +105,22 @@ export default {
           el.style.transform = "scale(" + escala + ")";
       },
       onPinchMove(gestureStatus){
-        var selector = ".tar" + this.datos.id + " .imagen";
+         console.log(gestureStatus.scale);
+         var selector = ".tar" + this.datos.id + " .imagen";
          this.escalar(document.querySelector(selector), gestureStatus.scale);
       },
       onPinchEnd(gestureStatus){
+         console.log(gestureStatus.scale);
           var selector = ".tar" + this.datos.id + " .imagen";
           this.escalar(document.querySelector(selector), 1);
       },
       onTapEnd(gestureStatus){
+         console.log(gestureStatus);
           var selector = ".tar" + this.datos.id + " .imagen";
           this.escalar(document.querySelector(selector), 1);
+      },
+      consolear(){
+        console.log("Double tap");
       },    
     },
     mounted: function() {
@@ -218,7 +226,7 @@ export default {
     height: 32px;
   }
 
-  .imagen{
+  .imagen, .imWrapper{
     background: #ccc;
     width: 100%;
     display: flex;
