@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="imWrapper" @dblclick="megustear()">
-      <Gesture @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTapEnd="onTapEnd($event)" enablePinch>
+      <Gesture @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTouchEnd="onTouchEnd()" enablePinch>
         <div class="imagen">
           <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
           <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
@@ -114,14 +114,10 @@ export default {
           var selector = ".tar" + this.datos.id + " .imagen";
           this.escalar(document.querySelector(selector), 1);
       },
-      onTapEnd(gestureStatus){
-         console.log(gestureStatus);
+      onTouchEnd(){
           var selector = ".tar" + this.datos.id + " .imagen";
           this.escalar(document.querySelector(selector), 1);
       },
-      consolear(){
-        console.log("Double tap");
-      },    
     },
     mounted: function() {
     }
