@@ -18,6 +18,26 @@ export default {
 </script>
 
 <style>
+html{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+body{
+  max-width: 600px !important;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 601px){
+  body{
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom: none;
+  }
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -28,6 +28,7 @@
     "@ionic/vue": "0.0.4",
     "animate.css": "^3.7.2",
     "core-js": "^2.6.5",
+    "euv-gesture": "0.0.1",
     "firebase": "^7.0.0",
     "vue": "^2.6.10",
     "vue-property-decorator": "^8.2.2",

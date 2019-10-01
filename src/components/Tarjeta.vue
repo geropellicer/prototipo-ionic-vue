@@ -1,6 +1,6 @@
 <template>
   <ion-item no-padding>
-    <div class="tarjeta">
+    <div :class="'tar' + datos.id" class="tarjeta">
       <div class="cabecera">
         <div class="left">
           <div class="perfil">
@@ -17,27 +17,29 @@
             </ion-button>
         </div>
       </div>
-      <div class="imagen" @dblclick="megustear()">
-        <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
-        <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
-      </div>
+      <Gesture @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTapEnd="onTapEnd($event)" enablePinch>
+        <div class="imagen" @dblclick="megustear()">
+          <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
+          <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
+        </div>
+      </Gesture>
       <div class="bottom">
         <div class="bottom-left">
           <ion-button fill="clear" shape="undefined" size="small" @click="megustear2()">
-            <ion-img v-if="!megusteado" :src="require(`@/assets/icons/ig-like-outline.png`)"></ion-img>
-            <ion-img v-if="megusteado" :src="require(`@/assets/icons/ig-like-fill.png`)"></ion-img>
+            <img v-if="!megusteado" src="../assets/icons/ig-like-outline.png"/>
+            <img v-if="megusteado" src="../assets/icons/ig-like-fill.png"/>
           </ion-button>
           <ion-button fill="clear" shape="undefined" size="small">
-            <ion-img :src="require(`@/assets/icons/ig-comments.png`)"></ion-img>
+            <img src="../assets/icons/ig-comments.png"/>
           </ion-button>
           <ion-button fill="clear" shape="undefined" size="small">
-            <ion-img :src="require(`@/assets/icons/ig-share.png`)"></ion-img>
+            <img src="../assets/icons/ig-share.png"/>
           </ion-button>
         </div>
         <div class="bottom-right">
           <ion-button fill="clear" shape="undefined" size="small" @click="guardar()">
-            <ion-img v-if="!guardado" :src="require(`@/assets/icons/ig-save-outline.png`)"></ion-img>
-            <ion-img v-if="guardado" :src="require(`@/assets/icons/ig-save-fill.png`)"></ion-img>
+            <img v-if="!guardado" src="../assets/icons/ig-save-outline.png"/>
+            <img v-if="guardado" src="../assets/icons/ig-save-fill.png"/>
           </ion-button>
         </div>
       </div>
@@ -59,8 +61,14 @@
   </ion-item>
 </template>
 <script>
+import Gesture from 'euv-gesture';
+
+
 export default {
     name: 'Tarjeta',
+    components: {
+      Gesture,
+    },
     props: {
       datos: Object,
     },
@@ -71,13 +79,14 @@ export default {
       }
     },
     methods: {
-      megustear() {
+      guardar() {
         this.guardado = !this.guardado;
       },
       megustear() {
         this.megusteado = true;
         if(this.megusteado){
-          const element =  document.querySelector('.mielemento');
+          var selector = ".tar" + this.datos.id + " .mielemento";
+          const element =  document.querySelector(selector);
           element.classList.remove('oculto');
           element.addEventListener('animationend', function() { 
             element.classList.add('oculto');
@@ -89,7 +98,22 @@ export default {
       }, 
       megustear2(){
         this.megusteado = !this.megusteado;
-      }
+      },
+      escalar(el, escala){
+          el.style.transform = "scale(" + escala + ")";
+      },
+      onPinchMove(gestureStatus){
+        var selector = ".tar" + this.datos.id + " .imagen";
+         this.escalar(document.querySelector(selector), gestureStatus.scale);
+      },
+      onPinchEnd(gestureStatus){
+          var selector = ".tar" + this.datos.id + " .imagen";
+          this.escalar(document.querySelector(selector), 1);
+      },
+      onTapEnd(gestureStatus){
+          var selector = ".tar" + this.datos.id + " .imagen";
+          this.escalar(document.querySelector(selector), 1);
+      },    
     },
     mounted: function() {
     }
@@ -216,16 +240,16 @@ export default {
     align-items: center;
     flex-wrap: nowrap;
   }
-  .bottom-left ion-img{
+  .bottom-left img{
     margin-right: 12px;
     width: 23px;
     height: auto;
   }
-  .bottom-left > *:first-child ion-img{
+  .bottom-left > *:first-child img{
     width: 26px;
     height: auto;
   }
-  .bottom-right ion-img{
+  .bottom-right img{
     width: 20px;
     height: 26px;
   }
