@@ -1,8 +1,12 @@
 # prototipo-ionic-vue
 
-## Project setup
+
+## Prerequisites
 ```
-npm install
+Install NVM
+nvm install node (v 12 or higher)
+Clone repo
+CD ionic-poc-mobile-hybrid
 ```
 
 ### Compiles and hot-reloads for development
