@@ -13,6 +13,9 @@ Vue.use(Vue2TouchEvents)
 
 Vue.config.productionTip = false
 
+import { Plugins } from '@capacitor/core';
+const { SplashScreen } = Plugins;
+
 new Vue({
   router,
   render: h => h(App)
