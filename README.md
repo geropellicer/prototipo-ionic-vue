@@ -16,6 +16,17 @@ CD ionic-poc-mobile-hybrid
 npm install
 ```
 
+### Test on desktop browser
+```
+npm run serve
+Then go to http://localhost:8080 and at this point the project should be running fine.
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
@@ -38,15 +49,7 @@ npx cap open android
 npx cap open ios
 ```
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
