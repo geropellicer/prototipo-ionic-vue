@@ -9,9 +9,11 @@ Clone repo
 CD ionic-poc-mobile-hybrid
 ```
 
-### Compiles and hot-reloads for development
+
+
+### Install NPM dependencies
 ```
-npm run serve
+npm install
 ```
 
 ### Compiles and minifies for production
