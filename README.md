@@ -21,6 +21,17 @@ npm install
 npm run build
 ```
 
+### Sync files for building native apps
+```
+npx cap copy
+```
+
+### Open AndroidStudio or xCode to build native app
+```
+npx cap open android
+npx cap open ios
+```
+
 ### Run your tests
 ```
 npm run test
