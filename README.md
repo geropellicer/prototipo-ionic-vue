@@ -21,6 +21,12 @@ npm install
 npm run build
 ```
 
+### Add capacitor platforms you want to build for
+```
+npx cap add ios
+npx cap add android
+```
+
 ### Sync files for building native apps
 ```
 npx cap copy
