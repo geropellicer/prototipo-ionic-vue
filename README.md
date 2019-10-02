@@ -2,14 +2,18 @@
 
 
 ## Prerequisites
+#For testing in desktop browser
 ```
 Install NVM
 nvm install node (v 12 or higher)
 Clone repo
 CD ionic-poc-mobile-hybrid
 ```
-
-
+#If you also want to deploy to Android or iOS
+```
+Install Android Studio and dependencies
+Install xCode
+```
 
 ### Install NPM dependencies
 ```
@@ -36,6 +40,11 @@ npm run build
 ```
 npx cap add ios
 npx cap add android
+```
+
+### Update plugins and files related to each platform
+```
+npx cap update
 ```
 
 ### Sync files for building native apps
