@@ -130,7 +130,7 @@ export default {
         var self = this;
         setTimeout(function(){
           self.taps = 0;
-        }, 85);
+        }, 115);
       },
     },
     mounted: function() {
@@ -144,14 +144,12 @@ export default {
     display: none;
 }
 .mielemento{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   color: rgba(255,255,255,.85);
-  width: 22vw;
-  height: 22vw;
-
+  width: 20vh;
+  height: 20vh;
+  position: absolute;
+  bottom: calc(50% - 10vh);
+  right: calc(50% - 10vh);
 }
 .mielemento svg{
   opacity: .27 !important;
@@ -235,6 +233,9 @@ export default {
     height: 32px;
   }
 
+  .imagen{
+    position: relative;
+  }  
   .imagen, .imWrapper{
     background: #ccc;
     width: 100%;
