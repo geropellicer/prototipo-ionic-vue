@@ -24,6 +24,7 @@
     "@capacitor/android": "^1.2.1",
     "@capacitor/cli": "^1.2.1",
     "@capacitor/core": "^1.2.1",
+    "@capacitor/ios": "^1.2.1",
     "@ionic-native/firebase": "^5.0.0-beta.14",
     "@ionic/vue": "0.0.4",
     "animate.css": "^3.7.2",

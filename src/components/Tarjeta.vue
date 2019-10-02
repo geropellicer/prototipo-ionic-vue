@@ -131,13 +131,12 @@ export default {
 }
 .mielemento{
   position: absolute;
-  top: -100px;
   bottom: 0;
   left: 0;
   right: 0;
   color: rgba(255,255,255,.85);
-  width: 28vw;
-  height: 28vw;
+  width: 22vw;
+  height: 22vw;
 
 }
 .mielemento svg{
