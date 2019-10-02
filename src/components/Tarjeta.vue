@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="imWrapper" @dblclick="megustear()">
-      <Gesture @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTouchEnd="onTouchEnd()" enablePinch>
+      <Gesture @onTap="verDoubleTap()" @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTouchEnd="onTouchEnd()" enablePinch>
         <div class="imagen">
           <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
           <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
@@ -78,6 +78,7 @@ export default {
       return{
         megusteado: false,
         guardado: false,
+        taps: 0,
       }
     },
     methods: {
@@ -117,6 +118,19 @@ export default {
       onTouchEnd(){
           var selector = ".tar" + this.datos.id + " .imagen";
           this.escalar(document.querySelector(selector), 1);
+      },
+      verDoubleTap(){
+        this.taps++;
+        if(this.taps == 2){
+          this.megustear();
+          this.taps = 0;
+        } if(this.taps >= 2){
+          console.log("Tu codigo es una mierda y taps es mucho mayor a 2, da exactamente " + String(this.taps));
+        }
+        var self = this;
+        setTimeout(function(){
+          self.taps = 0;
+        }, 85);
       },
     },
     mounted: function() {
@@ -225,6 +239,7 @@ export default {
     background: #ccc;
     width: 100%;
     display: flex;
+    z-index: 1000;
   }
 
   .bottom{
