@@ -130,7 +130,7 @@ export default {
         var self = this;
         setTimeout(function(){
           self.taps = 0;
-        }, 115);
+        }, 205);
       },
     },
     mounted: function() {
