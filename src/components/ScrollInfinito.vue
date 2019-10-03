@@ -70,10 +70,8 @@ export default {
             this.paginaActual= 0;
             this.cantidadArticulosDescargados= 0;
             this.porPaginaActual= 15;
-            this.posts = this.posts.slice(0,1); 
-            setTimeout(() => {
-                event.target.complete();
-            }, 1000);
+            this.posts = []; 
+            this.bajarData(event);
         }
     },
     mounted: function(){
