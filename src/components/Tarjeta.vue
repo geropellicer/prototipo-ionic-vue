@@ -17,14 +17,14 @@
             </ion-button>
         </div>
       </div>
-      <div class="imWrapper" @dblclick="megustear()">
+      <!-- <div class="imWrapper" @dblclick="megustear()"> -->
       <Gesture @onTap="verDoubleTap()" @onPinch="onPinchMove($event)" @onPinchEnd="onPinchEnd($event)" @onTouchEnd="onTouchEnd()" enablePinch>
         <div class="imagen">
           <ion-img class="imgPrincipal" :src="datos.image_url"></ion-img>
           <ion-icon class="mielemento oculto animated bounceIn" name="heart"></ion-icon>
         </div>
       </Gesture>
-      </div>
+      <!-- </div> -->
       <div class="bottom">
         <div class="bottom-left">
           <ion-button fill="clear" shape="undefined" size="small" @click="megustear2()">
