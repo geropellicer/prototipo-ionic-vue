@@ -42,6 +42,10 @@ export default {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    padding: 12px;
+  }
+  .ios .cabecera{
+    padding: 18px 12px 6px 12px;
   }
   .cabecera-right,
   .cabecera-left,
