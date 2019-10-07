@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">birrastagran2</string>
-    <string name="title_activity_main">birrastagran2</string>
+    <string name="app_name">birrastagram 2</string>
+    <string name="title_activity_main">birrastagram 2</string>
     <string name="package_name">com.devsar.ionicvue</string>
     <string name="fileprovider_authority">com.devsar.ionicvue.fileprovider</string>
     <string name="custom_url_scheme">com.devsar.ionicvue</string>
